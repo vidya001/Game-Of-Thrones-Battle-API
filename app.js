@@ -25,8 +25,8 @@ function mostOccuredElem(arr1){
     {
             for (var j=i; j<arr1.length; j++)
             {
-                    if (arr1[i] == arr1[j])
-                        m++;
+                if (arr1[i] == arr1[j])
+                    m++;
                     if (mf<m)
                     {
                         mf=m; 
@@ -51,7 +51,7 @@ MongoClient.connect('mongodb://vidyaaddagada:welcome123@ds133570.mlab.com:33570/
 })
 
 app.get('/list', (req, res) => {
-    db.collection("Battles").find({}, { _id: 0, location: 1 }).toArray( (err, result) => {
+    db.collection("Battles").find({}, { _id: 0, location: 1 }).toArray((err, result) => {
         if (err) throw err
         console.log(result)
         res.send(result)
@@ -59,7 +59,7 @@ app.get('/list', (req, res) => {
 })
 
 app.get('/count', (req, res) => {
-    db.collection("Battles").find({}).toArray( (err, result) => {
+    db.collection("Battles").find({}).toArray((err, result) => {
         if (err) throw err;
         console.log("Count = " + result.length)
         let count = result.length
@@ -91,7 +91,7 @@ app.get('/stats', (req, res) => {
             
         }
         attacker_king = mostOccuredElem(attacker_king_arr)
-        console.log("attacket =============  " + attacker_king)
+        console.log("attacker = " + attacker_king)
         defender_king = mostOccuredElem(defender_king_arr)
         region = mostOccuredElem(region_arr)
         name = mostOccuredElem(name_arr)
