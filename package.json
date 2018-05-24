@@ -1,0 +1,13 @@
+{
+  "name": "GameOfThronesBattleAPI",
+  "version": "1.0",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^2.2.33",
+    "nodemon": "^1.17.5"
+  },
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "main": "app.js"
+}
