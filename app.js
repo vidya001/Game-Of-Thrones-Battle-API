@@ -51,10 +51,12 @@ MongoClient.connect('mongodb://vidyaaddagada:welcome123@ds133570.mlab.com:33570/
 })
 
 app.get('/list', (req, res) => {
+    var arr_list = new Array()
     db.collection("Battles").find({}, { _id: 0, location: 1 }).toArray((err, result) => {
         if (err) throw err
         console.log(result)
-        res.send(result)
+        result.forEach(a => { if (a.location != '') arr_list.push(a.location) })
+        res.send(arr_list)
     });
 })
 
