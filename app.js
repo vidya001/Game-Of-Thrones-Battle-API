@@ -82,7 +82,7 @@ app.get('/stats', (req, res) => {
                 else if(arr[i].attacker_outcome == "loss"){
                     loss++
                 }
-                if(battle_type.indexOf(arr[i].battle_type)== -1)
+                if(battle_type.indexOf(arr[i].battle_type)== -1 && arr[i].battle_type != "")
                     battle_type.push(arr[i].battle_type)
                 defender_size_arr.push(arr[i].defender_size)
                 if(arr[i].attacker_size != '')
@@ -98,7 +98,9 @@ app.get('/stats', (req, res) => {
         attacker_size = attacker_size.sort((a, b) => a-b)
         max = attacker_size[attacker_size.length-1]
         min = attacker_size[0]
-        avg = attacker_size[Math.round(attacker_size.length/2)]
+        console.log("attacker_size = " + attacker_size)
+        avg = attacker_size.reduce((a, b) => { return a+b })
+        console.log("avg = " + avg)
         var responseBody = {
             'most-active':{
                 'attacker_king': attacker_king,
