@@ -99,7 +99,8 @@ app.get('/stats', (req, res) => {
         max = attacker_size[attacker_size.length-1]
         min = attacker_size[0]
         console.log("attacker_size = " + attacker_size)
-        avg = attacker_size.reduce((a, b) => { return a+b })
+        avg = attacker_size.reduce((a, b) => { return a+b })/attacker_size.length
+        avg = Math.round(avg)
         console.log("avg = " + avg)
         var responseBody = {
             'most-active':{
